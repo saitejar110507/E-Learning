@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Point</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        .video-container {
+            aspect-ratio: 16/9;
+        }
+        .progress-bar {
+            height: 0.5rem;
+        }
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                z-index: 40;
+                height: 100vh;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Top Navigation Bar -->
+    <nav class="bg-blue-600 text-white fixed top-0 left-0 right-0 h-14 flex items-center justify-between px-4 z-30 shadow-md">
+        <div class="flex items-center space-x-4">
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-feather="menu"></i>
+            </button>
+            <img src="Humaaans - Research.png
+            " alt="Logo" class="h-8">
+        </div>
+        <div class="flex items-center space-x-4">
+            <span class="hidden md:inline">Hi, <span id="username" class="font-semibold">Teja</span></span>
+            <div class="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+                <i data-feather="user" class="text-blue-600"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-0 z-20 bg-black bg-opacity-50 hidden" onclick="closeMobileMenu()"></div>
+
+    <!-- Side Navigation Bar -->
+    <aside id="sidebar" class="sidebar bg-gradient-to-b from-orange-400 to-pink-400 text-white w-56 fixed top-14 left-0 bottom-0 z-20">
+        <ul class="py-4">
+            <li><a href="#home" class="nav-link block px-6 py-3 hover:bg-white hover:text-orange-500 transition duration-200" data-target="home"><i data-feather="home" class="mr-2"></i> Home</a></li>
+            <li><a href="#learn" class="nav-link block px-6 py-3 hover:bg-white hover:text-orange-500 transition duration-200" data-target="learn"><i data-feather="book" class="mr-2"></i> Learn</a></li>
+            <li><a href="#dashboard" class="nav-link block px-6 py-3 hover:bg-white hover:text-orange-500 transition duration-200" data-target="dashboard"><i data-feather="bar-chart-2" class="mr-2"></i> Dashboard</a></li>
+            <li><a href="#virtuallab" class="nav-link block px-6 py-3 hover:bg-white hover:text-orange-500 transition duration-200" data-target="virtuallab"><i data-feather="cpu" class="mr-2"></i> Virtual-Lab</a></li>
+            <li><a href="#elearning" class="nav-link block px-6 py-3 hover:bg-white hover:text-orange-500 transition duration-200" data-target="elearning"><i data-feather="book-open" class="mr-2"></i> E-Library</a></li>
+            <li><a href="#contactus" class="nav-link block px-6 py-3 hover:bg-white hover:text-orange-500 transition duration-200" data-target="contactus"><i data-feather="mail" class="mr-2"></i> Contact Us</a></li>
+            <li><a href="#aboutus" class="nav-link block px-6 py-3 hover:bg-white hover:text-orange-500 transition duration-200" data-target="aboutus"><i data-feather="info" class="mr-2"></i> About Us</a></li>
+            <li><a href="#tc" class="nav-link block px-6 py-3 hover:bg-white hover:text-orange-500 transition duration-200" data-target="tc"><i data-feather="file-text" class="mr-2"></i> Terms & Conditions</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-0 md:ml-56 mt-14 p-4 min-h-screen">
+        <!-- Home Section -->
+        <section id="home" class="content-section max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <h1 class="text-3xl font-bold text-blue-600 mb-4">Welcome to E-Learning Point</h1>
+                <p class="text-lg font-semibold mb-6">This is the main page of our e-learning platform.</p>
+                <p class="mb-6">
+                    We're excited to welcome you to E-Learning Connect Point, an innovative open-source e-learning platform designed to revolutionize your educational experience. Our platform offers a dynamic and interactive environment where you can explore a wide range of courses, engage in hands-on virtual labs, and connect with a vibrant learning community.
+                </p>
+                <h3 class="text-xl font-bold text-blue-600 mb-3">What You Can Expect:</h3>
+                <ul class="space-y-3 mb-6">
+                    <li class="flex items-start">
+                        <span class="bg-blue-100 text-blue-800 rounded-full p-1 mr-2">
+                            <i data-feather="bookmark" class="w-4 h-4"></i>
+                        </span>
+                        <span><b>Diverse Courses: </b>Access a broad array of subjects and materials tailored to various interests and learning levels.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-blue-100 text-blue-800 rounded-full p-1 mr-2">
+                            <i data-feather="activity" class="w-4 h-4"></i>
+                        </span>
+                        <span><b>Interactive Learning: </b>Engage with multimedia content, quizzes, and assignments that make learning both effective and enjoyable.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-blue-100 text-blue-800 rounded-full p-1 mr-2">
+                            <i data-feather="code" class="w-4 h-4"></i>
+                        </span>
+                        <span><b>Virtual Labs: </b>Experience practical learning through our simulated environments that allow you to experiment and apply concepts in a risk-free setting.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="bg-blue-100 text-blue-800 rounded-full p-1 mr-2">
+                            <i data-feather="users" class="w-4 h-4"></i>
+                        </span>
+                        <span><b>Community Support: </b>Connect with peers, educators, and mentors through forums and collaborative tools.</span>
+                    </li>
+                </ul>
+                <p class="font-semibold">
+                    At E-Learning Connect Point, our goal is to provide you with a comprehensive and accessible learning experience that fosters growth and innovation. We're here to support you every step of the way. Welcome aboard, and happy learning!
+                </p>
+            </div>
+        </section>
+
+        <!-- Learn Section -->
+        <section id="learn" class="content-section hidden max-w-6xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-blue-600 mb-4"><i data-feather="book" class="mr-2"></i> Learn</h2>
+                <p class="text-lg font-semibold mb-4">Here you can find all the available courses and lessons.</p>
+                <p class="mb-6">In this section, you'll find HTML, CSS, JavaScript, Java (Core and Advanced), SQL, and many more.</p>
+                
+                <div class="video-library grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Video Item 1 -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <div class="video-container">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/HGTJBPNC-Gw" title="HTML & CSS Full Course" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">HTML 5 By Bro Code</h3>
+                            <p class="text-gray-600 mb-2">This video covers the basics of HTML including elements, attributes, and structure.</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">HTML</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Basics</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Web Development</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Item 2 -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <div class="video-container">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/G3e-cpL7ofc" title="HTML & CSS Full Course" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Introduction to HTML & CSS</h3>
+                            <p class="text-gray-600 mb-2">This video covers the basics of HTML including elements, attributes, and structure.</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">HTML</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CSS</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Web Development</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Item 3 -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <div class="video-container">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/a_iQb1lnAEQ" title="Learn HTML & CSS" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Free Code camp Presents Front-End Tech</h3>
+                            <p class="text-gray-600 mb-2">This video covers the basics of HTML including elements, attributes, and structure.</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">HTML</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">CSS</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">UI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Item 4 -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <div class="video-container">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/jS4aFq5-91M" title="JavaScript Programming" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Introduction to JavaScript</h3>
+                            <p class="text-gray-600 mb-2">This video covers the basics of JavaScript.</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">JavaScript</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Programming</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Item 5 -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <div class="video-container">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/A74TOX803D0" title="Java Programming" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Introduction to Java Programming Language</h3>
+                            <p class="text-gray-600 mb-2">This video covers the basics of Java Programming Language.</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Java</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Programming</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Item 6 -->
+                    <div class="video-item bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                        <div class="video-container">
+                            <iframe class="w-full h-full" src="https://www.youtube.com/embed/BGTx91t8q50" title="Java Tutorial" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Java 2023</h3>
+                            <p class="text-gray-600 mb-2">This video covers the basics of Java Programming Language.</p>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Java</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Tutorial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section hidden max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-blue-600 mb-4"><i data-feather="bar-chart-2" class="mr-2"></i> Dashboard</h2>
+                <p class="text-lg font-semibold mb-4">This is the dashboard page.</p>
+                <p class="mb-6">Here you can track your progress, view completed courses, and manage your profile.</p>
+                
+                <div class="space-y-6">
+                    <!-- Progress Section -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-3">Course Progress</h3>
+                        <div class="mb-2 flex justify-between">
+                            <span>Overall Completion</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full progress-bar">
+                            <div class="bg-green-500 progress-bar rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-3">Recent Activity</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <span class="bg-green-100 text-green-800 rounded-full p-1 mr-2">
+                                    <i data-feather="check" class="w-4 h-4"></i>
+                                </span>
+                                <span>Completed "Introduction to HTML & CSS" course</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 text-blue-800 rounded-full p-1 mr-2">
+                                    <i data-feather="play" class="w-4 h-4"></i>
+                                </span>
+                                <span>Started "JavaScript Programming - Full Course"</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-purple-100 text-purple-800 rounded-full p-1 mr-2">
+                                    <i data-feather="video" class="w-4 h-4"></i>
+                                </span>
+                                <span>Attended "Java Tutorial for Beginners 2023" webinar</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Profile Management -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-3">Profile Management</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center transition duration-200">
+                                <i data-feather="edit" class="mr-2"></i> Edit Profile
+                            </button>
+                            <button class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md flex items-center transition duration-200">
+                                <i data-feather="key" class="mr-2"></i> Change Password
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Virtual Lab Section -->
+        <section id="virtuallab" class="content-section hidden max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-blue-600 mb-4"><i data-feather="cpu" class="mr-2"></i> Virtual-Lab</h2>
+                <p class="text-lg font-semibold mb-4">This is the virtual-lab page.</p>
+                <p class="mb-6">Here you can access the virtual labs for practical learning experiences.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Available Labs -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-3">Available Labs</h3>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                    <i data-feather="code" class="mr-2"></i> HTML & CSS Lab
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                    <i data-feather="code" class="mr-2"></i> JavaScript Lab
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                    <i data-feather="code" class="mr-2"></i> Java Programming Lab
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                    <i data-feather="code" class="mr-2"></i> SQL Lab
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Step-by-Step Guides -->
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-3">Step-by-Step Guides</h3>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                    <i data-feather="file-text" class="mr-2"></i> Building Your First Web Page
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                    <i data-feather="file-text" class="mr-2"></i> JavaScript Event Handling
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                    <i data-feather="file-text" class="mr-2"></i> Java Basics: Classes and Objects
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                    <i data-feather="file-text" class="mr-2"></i> SQL Query Writing
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- E-Library Section -->
+        <section id="elearning" class="content-section hidden max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-blue-600 mb-4"><i data-feather="book-open" class="mr-2"></i> E-Library</h2>
+                <p class="text-lg font-semibold mb-4">This is the E-Library page.</p>
+                <p class="mb-6">Here you can find all the available e-books and learning materials.</p>
+                
+                <div class="mb-8">
+                    <h3 class="font-bold text-lg mb-3">Available E-Books</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                <i data-feather="book" class="mr-2"></i> HTML & CSS: Design and Build Websites
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                <i data-feather="book" class="mr-2"></i> JavaScript: The Good Parts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                <i data-feather="book" class="mr-2"></i> Java: A Beginner's Guide
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="flex items-center text-blue-600 hover:text-blue-800">
+                                <i data-feather="book" class="mr-2"></i> Learning SQL
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-3">Search the Library</h3>
+                    <div class="flex">
+                        <input type="text" placeholder="Search for books, authors, or topics..." class="flex-grow px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-md flex items-center transition duration-200">
+                            <i data-feather="search" class="mr-2"></i> Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contactus" class="content-section hidden max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-blue-600 mb-4"><i data-feather="mail" class="mr-2"></i> Contact Us</h2>
+                <p class="text-lg font-semibold mb-4">This is the contact us page.</p>
+                <p class="mb-6">For any inquiries, please reach out to us at contact@elearningpoint.com.</p>
+                
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="font-bold text-lg mb-4">Get in Touch</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                            <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+                            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message:</label>
+                            <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center transition duration-200">
+                            <i data-feather="send" class="mr-2"></i> Send Message
+                        </button>
+                    </form>
+                    
+                    <div class="mt-6 pt-4 border-t border-gray-200">
+                        <a href="https://saitejar110507.github.io/Sai-Teja-Portfolio/" class="text-blue-600 hover:text-blue-800 flex items-center">
+                            <i data-feather="user" class="mr-2"></i> Developer's Contact
+                        </a>
+                        <p class="mt-2 text-gray-600">Please contact us if you have any questions or need assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="aboutus" class="content-section hidden max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-blue-600 mb-4"><i data-feather="info" class="mr-2"></i> About Us</h2>
+                <p class="text-lg font-semibold mb-4">This is the about us page.</p>
+                <p class="mb-6">E-Learning Point is a platform dedicated to providing quality education to everyone, everywhere.</p>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-xl text-blue-600 mb-2">Our Mission</h3>
+                        <p>At E-Learning Point, our mission is to democratize education by providing accessible, high-quality learning resources to students around the world.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-blue-600 mb-2">Our Team</h3>
+                        <p>We are a group of educators, developers, and designers passionate about making learning engaging and effective.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-blue-600 mb-2">Our Story</h3>
+                        <p>Founded in 2024, E-Learning Point started as a small project to help students and has grown into a comprehensive learning platform serving thousands of users worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terms & Conditions Section -->
+        <section id="tc" class="content-section hidden max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md p-6" data-aos="fade-up">
+                <h2 class="text-2xl font-bold text-blue-600 mb-4"><i data-feather="file-text" class="mr-2"></i> Terms & Conditions</h2>
+                <p class="text-lg font-semibold mb-4">This is the terms & conditions page.</p>
+                
+                <ol class="list-decimal pl-5 space-y-2 mb-6">
+                    <li>Your use of our service is subject to our terms and conditions.</li>
+                    <li>We reserve the right to modify our terms at any time.</li>
+                    <li>You are responsible for complying with all applicable laws.</li>
+                </ol>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-bold text-xl text-blue-600 mb-2">Privacy Policy</h3>
+                        <p>We value your privacy and are committed to protecting your personal information. Please review our privacy policy for more details.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-blue-600 mb-2">Acceptable Use Policy</h3>
+                        <p>Users must use our platform responsibly and must not engage in any activities that could harm other users or our services.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-blue-600 mb-2">Contact Information</h3>
+                        <p>If you have any questions about our terms and conditions, please contact us at legal@elearningpoint.com.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize feather icons
+        feather.replace();
+
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const sidebar = document.getElementById('sidebar');
+
+            // Show the home section by default
+            document.getElementById('home').classList.remove('hidden');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = link.getAttribute('data-target');
+
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.classList.add('hidden');
+                    });
+
+                    // Show the target section
+                    document.getElementById(targetId).classList.remove('hidden');
+
+                    // Close mobile menu if open
+                    sidebar.classList.remove('open');
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when clicking outside
+            mobileMenu.addEventListener('click', function() {
+                sidebar.classList.remove('open');
+                mobileMenu.classList.add('hidden');
+            });
+
+            // Close mobile menu when window is resized to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    sidebar.classList.remove('open');
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        function closeMobileMenu() {
+            document.getElementById('sidebar').classList.remove('open');
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

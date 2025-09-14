@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Registration Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+        }
+        .form-shadow {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .input-focus:focus {
+            border-color: #4F46E5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center gradient-bg">
+    <div class="w-full max-w-md mx-4">
+        <div class="bg-white rounded-2xl p-8 form-shadow" data-aos="fade-up">
+            <div class="text-center mb-8">
+                <div class="flex justify-center mb-4">
+                    <i data-feather="user-plus" class="w-12 h-12 text-indigo-600"></i>
+                </div>
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">Create Account</h1>
+                <p class="text-gray-500">Join our community today</p>
+            </div>
+
+            <form class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="fname" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                        <input type="text" id="fname" name="firstname" required 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200">
+                    </div>
+                    <div>
+                        <label for="lname" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                        <input type="text" id="lname" name="lastname" required 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <div class="relative">
+                        <input type="email" id="email" name="email" required 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200 pl-10">
+                        <i data-feather="mail" class="absolute left-3 top-3.5 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <div class="relative">
+                        <input type="tel" id="phone" name="phone" required 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200 pl-10">
+                        <i data-feather="phone" class="absolute left-3 top-3.5 text-gray-400"></i>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
+                        <div class="relative">
+                            <input type="date" id="dob" name="dob" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="gender" class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                        <select id="gender" name="gender" required 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200">
+                            <option value="" disabled selected>Select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200 pl-10">
+                            <i data-feather="lock" class="absolute left-3 top-3.5 text-gray-400"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="confirm_password" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                        <div class="relative">
+                            <input type="password" id="confirm_password" name="confirm_password" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200 pl-10">
+                            <i data-feather="lock" class="absolute left-3 top-3.5 text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                    <select id="country" name="country" required 
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200">
+                        <option value="" disabled selected>Select country</option>
+                        <option value="India">India</option>
+                        <option value="USA">United States</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="occupation" class="block text-sm font-medium text-gray-700 mb-1">Occupation</label>
+                    <select id="occupation" name="occupation" required 
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200">
+                        <option value="" disabled selected>Select occupation</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="professional">Professional</option>
+                        <option value="entrepreneur">Entrepreneur</option>
+                        <option value="freelancer">Freelancer</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+                    <textarea id="address" name="address" rows="3" required 
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none input-focus transition duration-200"></textarea>
+                </div>
+
+                <div class="flex items-center">
+                    <input type="checkbox" id="terms" name="terms" required 
+                        class="w-4 h-4 text-indigo-600 rounded border-gray-300 focus:ring-indigo-500">
+                    <label for="terms" class="ml-2 block text-sm text-gray-700">
+                        I agree to the <a href="#" class="text-indigo-600 hover:underline">terms and conditions</a>
+                    </label>
+                </div>
+
+                <button type="submit" 
+                    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center">
+                    <span>Register Now</span>
+                    <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                </button>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-sm text-gray-500">
+                    Already have an account? 
+                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Sign in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+    </script>
+</body>
+</html>
